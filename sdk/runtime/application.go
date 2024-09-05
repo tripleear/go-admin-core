@@ -271,15 +271,6 @@ func (e *Application) SetLockerAdapter(c storage.AdapterLocker) {
 	e.locker = c
 }
 
-// GetLockerAdapter 获取分布式锁
-func (e *Application) GetLockerAdapter() storage.AdapterLocker {
-	return NewLocker("", e.locker)
-}
-
-func (e *Application) GetLockerPrefix(key string) storage.AdapterLocker {
-	return NewLocker(key, e.locker)
-}
-
 func (e *Application) SetHandler(key string, routerGroup func(r *gin.RouterGroup, hand ...*gin.HandlerFunc)) {
 	e.mux.Lock()
 	defer e.mux.Unlock()
