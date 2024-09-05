@@ -2,7 +2,6 @@ package queue
 
 import (
 	"fmt"
-	"github.com/go-admin-team/redisqueue/v2"
 	"log"
 	"sync"
 	"testing"
@@ -33,13 +32,12 @@ func TestMemory_Append(t *testing.T) {
 			fields{},
 			args{
 				name: "test",
-				message: &Message{redisqueue.Message{
+				message: &Message{
 					ID:     "",
 					Stream: "test",
 					Values: map[string]interface{}{
 						"key": "value",
-					},
-				}, 3, sync.RWMutex{},
+					}, ErrorCount: 3, mux: sync.RWMutex{},
 				},
 			},
 			false,
@@ -88,12 +86,11 @@ func TestMemory_Register(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			m := NewMemory(100)
 			m.Register(tt.name, tt.args.f)
-			if err := m.Append(&Message{redisqueue.Message{
+			if err := m.Append(&Message{
 				Stream: "test",
 				Values: map[string]interface{}{
 					"key": "value",
-				},
-			}, 3, sync.RWMutex{}}); err != nil {
+				}, ErrorCount: 3, mux: sync.RWMutex{}}); err != nil {
 				t.Error(err)
 				return
 			}

@@ -2,11 +2,11 @@ package cache
 
 import (
 	"github.com/go-admin-team/go-admin-core/storage"
-	"github.com/go-admin-team/redisqueue/v2"
+	"github.com/go-admin-team/go-admin-core/storage/queue"
 )
 
 type Message struct {
-	redisqueue.Message
+	queue.Message
 }
 
 func (m *Message) GetID() string {

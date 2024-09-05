@@ -1,14 +1,14 @@
 package queue
 
 import (
-	"github.com/go-admin-team/redisqueue/v2"
-	"sync"
-
 	"github.com/go-admin-team/go-admin-core/storage"
+	"sync"
 )
 
 type Message struct {
-	redisqueue.Message
+	ID         string
+	Stream     string
+	Values     map[string]interface{}
 	ErrorCount int
 	mux        sync.RWMutex
 }
