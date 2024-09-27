@@ -5,10 +5,10 @@ import (
 
 	"github.com/casbin/casbin/v2/log"
 	"github.com/casbin/casbin/v2/model"
+	gormAdapter "github.com/go-admin-team/gorm-adapter/v3"
+	redisWatcher "github.com/go-admin-team/redis-watcher/v2"
 	redis "github.com/go-redis/redis/v9"
-	gormAdapter "github.com/tripleear/go-admin-core/gorm-adapter/v3"
 	"github.com/tripleear/go-admin-core/logger"
-	redisWatcher "github.com/tripleear/go-admin-core/redis-watcher/v2"
 	"github.com/tripleear/go-admin-core/sdk"
 	"github.com/tripleear/go-admin-core/sdk/config"
 	"gorm.io/gorm"
