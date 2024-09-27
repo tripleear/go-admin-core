@@ -3,17 +3,15 @@ package mycasbin
 import (
 	"sync"
 
-	"github.com/casbin/casbin/v2"
 	"github.com/casbin/casbin/v2/log"
 	"github.com/casbin/casbin/v2/model"
-	"github.com/go-admin-team/go-admin-core/logger"
-	"github.com/go-admin-team/go-admin-core/sdk"
-	"github.com/go-admin-team/go-admin-core/sdk/config"
-	redisWatcher "github.com/go-admin-team/redis-watcher/v2"
-	"github.com/go-redis/redis/v9"
+	redis "github.com/go-redis/redis/v9"
+	gormAdapter "github.com/tripleear/go-admin-core/gorm-adapter/v3"
+	"github.com/tripleear/go-admin-core/logger"
+	redisWatcher "github.com/tripleear/go-admin-core/redis-watcher/v2"
+	"github.com/tripleear/go-admin-core/sdk"
+	"github.com/tripleear/go-admin-core/sdk/config"
 	"gorm.io/gorm"
-
-	gormAdapter "github.com/go-admin-team/gorm-adapter/v3"
 )
 
 // Initialize the model from a string.
